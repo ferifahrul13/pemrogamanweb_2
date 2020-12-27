@@ -16,6 +16,8 @@ CREATE TABLE `kategori` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `kategori` (`id`, `nama_kategori`, `created_at`, `updated_at`) VALUES
+(1,	'sembako',	'2020-12-22 12:07:23',	'2020-12-22 12:07:23');
 
 DROP TABLE IF EXISTS `penjualan_detail`;
 CREATE TABLE `penjualan_detail` (
@@ -60,7 +62,7 @@ CREATE TABLE `produk` (
   `deskripsi` text DEFAULT NULL,
   `status` int(11) NOT NULL,
   `harga` bigint(20) NOT NULL,
-  `foto_produk` varchar(191) DEFAULT NULL,
+  `foto_produk` longtext DEFAULT NULL,
   `kategori_id` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
   `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
@@ -84,4 +86,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
--- 2020-12-17 04:44:24
+-- 2020-12-27 17:57:45
