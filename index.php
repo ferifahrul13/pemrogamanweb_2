@@ -10,13 +10,16 @@ include __DIR__ . "/layouts/header.php";
 include __DIR__ . "/layouts/sidebar.php";
 
 //content
-$queries = [];
+$queries = [
+    'page' => ''
+];
 
-parse_str($_SERVER["QUERY_STRING"], $queries);
-
+if (isset($_SERVER['QUERY_STRING'])) {
+    parse_str($_SERVER["QUERY_STRING"], $queries);
+}
 switch ($queries['page']) {
 
-    //product 
+        //product 
     case 'create_product':
         include __DIR__ . "/pages/admin/product/create.php";
         break;
@@ -32,10 +35,10 @@ switch ($queries['page']) {
     case 'delete_product':
         include __DIR__ . "/pages/admin/product/delete.php";
         break;
-    
+
 
     default:
-    include __DIR__ . "/pages/admin/dashboard.php";
+        include __DIR__ . "/pages/admin/dashboard.php";
 }
 //footer
 include __DIR__ . "/layouts/footer.php";

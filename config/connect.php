@@ -2,7 +2,7 @@
 
 $config = [
     'host'     => 'localhost',
-    'user'     => 'ferifahrul',
+    'user'     => 'root',
     'password' => 'password',
     'database' => 'db_toko',
 

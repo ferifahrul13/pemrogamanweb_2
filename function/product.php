@@ -107,10 +107,12 @@ $product = new Product();
 // var_dump($_POST);
 if (isset($_POST['simpan'])) {
     $product->store($_POST);
-} else if (isset($_POST['update'])) {
-    $product->update($_POST, $_GET['id']);
-} else if (isset($_POST['delete'])) {
-    $product->destroy($_POST, $_GET['id']);
+// } 
+// else if (isset($_POST['update'])) {
+//     $product->update($_POST, $_GET['id']);
+// } else if (isset($_POST['delete'])) {
+//     $product->destroy($_POST, $_GET['id']);
 } else {
+
     echo 'tidak ada request';
 }
