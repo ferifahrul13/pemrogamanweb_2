@@ -57,7 +57,7 @@
                                               <label>Kategori Produk</label>
                                               <select class="form-control" name="kategori_id">
                                                   <option value="">-- Pilih Kategori Produk --</option>
-                                                  <option value="1">COBA</option>
+                                                  <option value="1">Sembako</option>
                                               </select>
                                           </div>
                                       </div>
