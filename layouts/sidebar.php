@@ -21,10 +21,11 @@
             </li>
 
             <li>
-                <a class="nav-link" href="?page=edit">
-                    <i class="far fa-square"></i> <span>Edit</span>
+                <a class="nav-link" href="?page=index_category">
+                    <i class="fas fa-boxes"></i> <span>Kategori</span>
                 </a>
             </li>
+
 
 
     </aside>

@@ -36,6 +36,22 @@ switch ($queries['page']) {
         include __DIR__ . "/pages/admin/product/delete.php";
         break;
 
+        //category 
+    case 'create_category':
+        include __DIR__ . "/pages/admin/category/create.php";
+        break;
+
+    case 'index_category':
+        include __DIR__ . "/pages/admin/category/index.php";
+        break;
+
+    case 'edit_category':
+        include __DIR__ . "/pages/admin/category/edit.php";
+        break;
+
+    case 'delete_category':
+        include __DIR__ . "/pages/admin/category/delete.php";
+        break;
 
     default:
         include __DIR__ . "/pages/admin/dashboard.php";

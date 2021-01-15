@@ -114,13 +114,14 @@ class Product
         if ($sql) {
             return true;
         } else {
-            return mysqli_errno($sql);
+            return mysqli_error($sql);
         }
     }
 
     public function update($request)
     {
         $data = $this->handleRequest($request);
+        $data->updated_at  = (new DateTime('now'))->format('Y-m-d H:i:s');
         $id = $request["id"];
         $query = "SELECT id FROM produk WHERE id='$id'";
         $sql = mysqli_query($this->connect(), $query);
@@ -135,25 +136,24 @@ class Product
             deskripsi='{$data->deskripsi}',
             status='{$data->status}',
             harga='{$data->harga}',
-            kategori_id='{$data->kategori_id}'
+            kategori_id='{$data->kategori_id}',
+            updated_at='{$data->updated_at}'
             WHERE id='$id';
              ";
             $sql_update = mysqli_query($this->connect(), $query_update);
             if ($sql_update) {
                 return ['status' => 'success', 'message' => 'berhasil update'];
             }
-            return ['status' => 'failed', 'message' => mysqli_errno($sql_update)];
+            return ['status' => 'failed', 'message' => mysqli_error($sql_update)];
         }
     }
 }
 
 $product = new Product();
-// var_dump($_POST);
 if (isset($_POST['simpan'])) {
     $product->store($_POST);
 } else if (isset($_POST['update'])) {
     $result = $product->update($_POST);
-    // var_dump($result);
     if ($result["status"] == "success") {
         $message = $result["message"];
         echo "<script>alert('$message'); document.location='/index.php?page=index_product'; </script>";
@@ -161,6 +161,4 @@ if (isset($_POST['simpan'])) {
         $message = $result["message"];
         echo "<script>alert('$message'); window.history.back(); </script>";
     }
-    // } else if (isset($_POST['delete'])) {
-    //     $product->destroy($_POST, $_GET['id']);
 }

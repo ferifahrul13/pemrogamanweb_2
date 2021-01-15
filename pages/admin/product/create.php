@@ -3,7 +3,7 @@
           <section class="section">
               <div class="row">
                   <div class="col-lg-12">
-                      <form action="/../../function/product.php" method="POST" enctype="multipart/form-data">
+                      <form action="/../../function/product.php" method="POST">
                           <div class="card">
                               <div class="card-header">
                                   <h4>Tambah Produk</h4>
