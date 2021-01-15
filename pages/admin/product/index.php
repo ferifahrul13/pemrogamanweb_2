@@ -89,7 +89,8 @@
                                                 <?= $row['deskripsi']; ?>
                                             </td>
                                             <td>
-                                                <a href="/index.php?page=edit_produk&id=<?= $row['id_produk']; ?>">Edit</a>
+                                                <a class="btn btn-sm btn-primary" href="/index.php?page=edit_product&id=<?= $row['id_produk']; ?>">Edit</a>
+                                                <a onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn btn-sm btn-danger" href="/index.php?page=delete_product&id=<?= $row['id_produk']; ?>">Hapus</a>
                                             </td>
                                         </tr>
                                 <?php

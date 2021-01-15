@@ -1,17 +1,19 @@
-<div class="main-content">
-    <section class="section">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Delete</h4>
-                    </div>
-                    <div class="card-body">
-                        TODO MEMBUAT DIALOG HAPUS BARANG
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-</div>
+<?php
+include __DIR__ . "/../../../function/product.php";
+if (isset($_GET["id"])) {
+    $obj = new Product();
+    $id = $_GET["id"];
+    $product = $obj->find($id);
+    if ($product) {
+        $delete = $obj->destroy($id);
+        if ($delete) {
+            echo "<script>alert('data Berhasil dihapus'); document.location='/index.php?page=index_product'; </script>";
+        } else {
+            echo "<script>alert('data Gagal dihapus'); document.location='/index.php?page=index_product'; </script>";
+        }
+    } else {
+        echo "<script>alert('data tidak ada'); document.location='/index.php?page=index_product'; </script>";
+    }
+} else {
+    echo "<script>alert('parameter tidak sesuai'); document.location='/index.php?page=index_product'; </script>";
+}
