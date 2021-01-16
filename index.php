@@ -3,8 +3,9 @@
 error_reporting(E_ALL);
 session_start();
 include __DIR__ . "/config/connect.php";
-
+$logged = false;
 if (isset($_SESSION['username'])) {
+    $logged = true;
     //header
     include __DIR__ . "/layouts/header.php";
     //sidebar
@@ -24,53 +25,75 @@ switch ($queries['page']) {
 
         //product 
     case 'create_product':
-        include __DIR__ . "/pages/admin/product/create.php";
+        if ($logged) include __DIR__ . "/pages/admin/product/create.php";
         break;
 
     case 'index_product':
-        include __DIR__ . "/pages/admin/product/index.php";
+        if ($logged)  include __DIR__ . "/pages/admin/product/index.php";
+        else
+            header("location:/index.php");
         break;
 
     case 'edit_product':
-        include __DIR__ . "/pages/admin/product/edit.php";
+        if ($logged)   include __DIR__ . "/pages/admin/product/edit.php";
+        else
+            header("location:/index.php");
         break;
 
     case 'delete_product':
-        include __DIR__ . "/pages/admin/product/delete.php";
+        if ($logged)  include __DIR__ . "/pages/admin/product/delete.php";
+        else
+            header("location:/index.php");
         break;
 
         //category 
     case 'create_category':
-        include __DIR__ . "/pages/admin/category/create.php";
+        if ($logged)  include __DIR__ . "/pages/admin/category/create.php";
+        else
+            header("location:/index.php");
         break;
 
     case 'index_category':
-        include __DIR__ . "/pages/admin/category/index.php";
+        if ($logged)  include __DIR__ . "/pages/admin/category/index.php";
+        else
+            header("location:/index.php");
         break;
 
     case 'edit_category':
-        include __DIR__ . "/pages/admin/category/edit.php";
+        if ($logged)   include __DIR__ . "/pages/admin/category/edit.php";
+        else
+            header("location:/index.php");
         break;
 
     case 'delete_category':
-        include __DIR__ . "/pages/admin/category/delete.php";
+        if ($logged)  include __DIR__ . "/pages/admin/category/delete.php";
+        else
+            header("location:/index.php");
         break;
 
         //user 
     case 'create_user':
-        include __DIR__ . "/pages/admin/user/create.php";
+        if ($logged)   include __DIR__ . "/pages/admin/user/create.php";
+        else
+            header("location:/index.php");
         break;
 
     case 'index_user':
-        include __DIR__ . "/pages/admin/user/index.php";
+        if ($logged)   include __DIR__ . "/pages/admin/user/index.php";
+        else
+            header("location:/index.php");
         break;
 
     case 'edit_user':
-        include __DIR__ . "/pages/admin/user/edit.php";
+        if ($logged)   include __DIR__ . "/pages/admin/user/edit.php";
+        else
+            header("location:/index.php");
         break;
 
     case 'delete_user':
-        include __DIR__ . "/pages/admin/user/delete.php";
+        if ($logged)   include __DIR__ . "/pages/admin/user/delete.php";
+        else
+            header("location:/index.php");
         break;
 
         //Auth
@@ -78,12 +101,17 @@ switch ($queries['page']) {
     case 'login':
         include __DIR__ . "/pages/login.php";
         break;
+        //register
+    case 'register':
+        include __DIR__ . "/layouts/header.php";
+        include __DIR__ . "/pages/admin/user/create.php";
+        break;
         //logout
     case 'logout':
         include __DIR__ . "/pages/login.php?do=logout";
         break;
 
-    //user
+        //user
 
     case 'detail_product':
         include __DIR__ . "/pages/user/detail_product.php";
