@@ -147,6 +147,35 @@ class Product
             return ['status' => 'failed', 'message' => mysqli_error($sql_update)];
         }
     }
+
+    public function mapperProduct()
+    {
+        $query = "
+        SELECT p.id as id_produk,p.kode_produk,p.nama_produk,p.satuan,p.harga,p.qty,p.deskripsi,p.status, kategori.nama_kategori
+                                            FROM produk as p 
+                                            INNER JOIN kategori
+                                            ON p.kategori_id = kategori.id
+                                            WHERE status='1' AND qty>0;
+                                           
+        ";
+        $products = [];
+        $sql  = mysqli_query($this->connect(), $query);
+        if (mysqli_num_rows($sql) > 0) {
+            while ($data = mysqli_fetch_assoc($sql)) {
+                $products[] = [
+                    "id" => $data["id_produk"],
+                    "nama_produk" =>  $data["nama_kategori"],
+                    "kode_produk" =>  $data["kode_produk"],
+                    "satuan" =>  $data["satuan"],
+                    "qty" =>  $data["qty"],
+                    "harga" =>  $data["harga"],
+                    "deskripsi" =>  $data["deskripsi"],
+                    "nama_kategori" =>  $data["nama_kategori"],
+                ];
+            }
+        }
+        return $products;
+    }
 }
 
 $product = new Product();

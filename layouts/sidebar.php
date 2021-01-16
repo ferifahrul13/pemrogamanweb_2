@@ -7,26 +7,35 @@
             <a href="index.html">SITS</a>
         </div>
         <ul class="sidebar-menu">
+            <?php
+            if ($_SESSION["level"] == "admin") {
+                ?>
+                <li>
+                    <a class="nav-link" href="?page=home">
+                        <i class="fas fa-home"></i> <span>Dashboard</span>
+                    </a>
+                </li>
 
-            <li>
-                <a class="nav-link" href="?page=home">
-                    <i class="fas fa-home"></i> <span>Dashboard</span>
-                </a>
-            </li>
+                <li>
+                    <a class="nav-link" href="?page=index_product">
+                        <i class="fas fa-boxes"></i> <span>Produk</span>
+                    </a>
+                </li>
 
-            <li>
-                <a class="nav-link" href="?page=index_product">
-                    <i class="fas fa-boxes"></i> <span>Produk</span>
-                </a>
-            </li>
+                <li>
+                    <a class="nav-link" href="?page=index_category">
+                        <i class="fas fa-list-alt"></i> <span>Kategori</span>
+                    </a>
+                </li>
 
-            <li>
-                <a class="nav-link" href="?page=index_category">
-                    <i class="fas fa-boxes"></i> <span>Kategori</span>
-                </a>
-            </li>
-
-
+                <li>
+                    <a class="nav-link" href="?page=index_user">
+                        <i class="fas fa-users"></i> <span>Pengguna</span>
+                    </a>
+                </li>
+            <?php
+            }
+            ?>
 
     </aside>
 </div>

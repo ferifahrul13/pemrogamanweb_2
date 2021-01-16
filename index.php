@@ -1,14 +1,17 @@
 <?php
 
 error_reporting(E_ALL);
-
+session_start();
 include __DIR__ . "/config/connect.php";
 
-//header
-include __DIR__ . "/layouts/header.php";
-//sidebar
-include __DIR__ . "/layouts/sidebar.php";
-
+if (isset($_SESSION['username'])) {
+    //header
+    include __DIR__ . "/layouts/header.php";
+    //sidebar
+    if ($_SESSION['level'] == "admin") {
+        include __DIR__ . "/layouts/sidebar.php";
+    }
+}
 //content
 $queries = [
     'page' => ''
@@ -53,8 +56,42 @@ switch ($queries['page']) {
         include __DIR__ . "/pages/admin/category/delete.php";
         break;
 
+        //user 
+    case 'create_user':
+        include __DIR__ . "/pages/admin/user/create.php";
+        break;
+
+    case 'index_user':
+        include __DIR__ . "/pages/admin/user/index.php";
+        break;
+
+    case 'edit_user':
+        include __DIR__ . "/pages/admin/user/edit.php";
+        break;
+
+    case 'delete_user':
+        include __DIR__ . "/pages/admin/user/delete.php";
+        break;
+
+        //Auth
+        //login
+    case 'login':
+        include __DIR__ . "/pages/login.php";
+        break;
+        //logout
+    case 'logout':
+        include __DIR__ . "/pages/login.php?do=logout";
+        break;
+
+    //user
+
+    case 'detail_product':
+        include __DIR__ . "/pages/user/detail_product.php";
+        break;
     default:
-        include __DIR__ . "/pages/admin/dashboard.php";
+        include __DIR__ . "/pages/dashboard.php";
 }
 //footer
-include __DIR__ . "/layouts/footer.php";
+if (isset($_SESSION['username'])) {
+    include __DIR__ . "/layouts/footer.php";
+}

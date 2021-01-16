@@ -4,10 +4,10 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Data Kategori</h4>
+                        <h4>Data Pengguna</h4>
                     </div>
                     <div class="card-body">
-                        <a href="/index.php?page=create_category" class="btn btn-lg btn-primary"><i class="fas fa-plus"></i> Kategori</a>
+                        <a href="/index.php?page=create_user" class="btn btn-lg btn-primary"><i class="fas fa-plus"></i> Pengguna</a>
                         <hr class="my-3">
                         <table class="table table-sm table-striped table-responsive-sm table-condesed table-hovered">
                             <thead>
@@ -15,7 +15,16 @@
                                     #
                                 </th>
                                 <th>
-                                    Nama Kategori
+                                    Nama Pengguna
+                                </th>
+                                <th>
+                                    Username
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                <th>
+                                    Level
                                 </th>
                                 <th>
                                     Aksi
@@ -29,7 +38,7 @@
 
                                 $query = "
                                             SELECT *
-                                            FROM kategori
+                                            FROM user
                                             ";
 
                                 $result =  mysqli_query($connect, $query);
@@ -42,11 +51,20 @@
                                                 <?= $n; ?>
                                             </td>
                                             <td>
-                                                <?= $row['nama_kategori']; ?>
+                                                <?= $row['nama_user']; ?>
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary" href="/index.php?page=edit_category&id=<?= $row['id']; ?>">Edit</a>
-                                                <a onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn btn-sm btn-danger" href="/index.php?page=delete_category&id=<?= $row['id']; ?>">Hapus</a>
+                                                <?= $row['username']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['email']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['level']; ?>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-sm btn-primary" href="/index.php?page=edit_user&id=<?= $row['id']; ?>">Edit</a>
+                                                <a onclick="return confirm('Yakin ingin menghapus data ini?')" class="btn btn-sm btn-danger" href="/index.php?page=delete_user&id=<?= $row['id']; ?>">Hapus</a>
                                             </td>
                                         </tr>
                                 <?php

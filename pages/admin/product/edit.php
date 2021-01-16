@@ -1,5 +1,6 @@
   <?php
     include __DIR__ . "/../../../function/product.php";
+    include __DIR__ . "/../../../function/category.php";
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
         $obj = new Product();
@@ -63,14 +64,20 @@
                                           </div>
 
                                           <div class="col-sm-6">
-                                              <div class="form-group">
-                                                  <label>Kategori Produk</label>
-                                                  <select class="form-control" name="kategori_id">
-                                                      <option value="">-- Pilih Kategori Produk --</option>
-                                                      <option value="1" <?php echo ($product["kategori_id"] == 1) ?  "selected" : ""; ?>>Sembako</option>
-                                                  </select>
-                                              </div>
+                                          <div class="form-group">
+                                              <label>Kategori Produk</label>
+                                              <?php
+                                              $obj = new Category();
+                                              $categories = $obj->mapperCategory();
+                                              ?>
+                                              <select class="form-control" name="kategori_id">
+                                                  <option value="">-- Pilih Kategori Produk --</option>
+                                                  <?php foreach($categories as $category){ ?>
+                                                  <option value="<?= $category["id"] ?>" <?php echo ($product["kategori_id"] == $category["id"]) ?  "selected" : ""; ?>><?= $category["nama_kategori"] ?></option>
+                                                  <?php } ?>
+                                              </select>
                                           </div>
+                                      </div>
 
 
                                           <div class="col-sm-6">

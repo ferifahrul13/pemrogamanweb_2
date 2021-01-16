@@ -7,7 +7,7 @@
                         <h4>Data Produk</h4>
                     </div>
                     <div class="card-body">
-                        <a href="/index.php?page=create_product" class="btn btn-lg btn-primary"><i class="fas fa-plus"></i>Produk</a>
+                        <a href="/index.php?page=create_product" class="btn btn-lg btn-primary"><i class="fas fa-plus"></i> Produk</a>
                         <hr class="my-3">
                         <table class="table table-sm table-striped table-responsive-sm table-condesed table-hovered">
                             <thead>
@@ -83,7 +83,7 @@
                                                 <?= $row['nama_kategori']; ?>
                                             </td>
                                             <td>
-                                                <?= $row['status']; ?>
+                                                <?= ($row['status'] == 1) ? "<span class='badge badge-success'>AKTIF</span>" : "<span class='badge badge-danger'>NONAKTIF</span>"; ?>
                                             </td>
                                             <td>
                                                 <?= $row['deskripsi']; ?>

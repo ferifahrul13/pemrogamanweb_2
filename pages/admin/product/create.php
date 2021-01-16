@@ -1,4 +1,6 @@
-      <!-- Main Content -->
+     <?php
+     include __DIR__."/../../../function/category.php"; ?>
+     <!-- Main Content -->
       <div class="main-content">
           <section class="section">
               <div class="row">
@@ -55,9 +57,15 @@
                                       <div class="col-sm-6">
                                           <div class="form-group">
                                               <label>Kategori Produk</label>
+                                              <?php
+                                              $obj = new Category();
+                                              $categories = $obj->mapperCategory();
+                                              ?>
                                               <select class="form-control" name="kategori_id">
                                                   <option value="">-- Pilih Kategori Produk --</option>
-                                                  <option value="1">Sembako</option>
+                                                  <?php foreach($categories as $category){ ?>
+                                                  <option value="<?= $category["id"] ?>"><?= $category["nama_kategori"] ?></option>
+                                                  <?php } ?>
                                               </select>
                                           </div>
                                       </div>
