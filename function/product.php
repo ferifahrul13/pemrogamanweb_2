@@ -164,7 +164,7 @@ class Product
             while ($data = mysqli_fetch_assoc($sql)) {
                 $products[] = [
                     "id" => $data["id_produk"],
-                    "nama_produk" =>  $data["nama_kategori"],
+                    "nama_produk" =>  $data["nama_produk"],
                     "kode_produk" =>  $data["kode_produk"],
                     "satuan" =>  $data["satuan"],
                     "qty" =>  $data["qty"],

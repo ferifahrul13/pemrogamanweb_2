@@ -27,18 +27,24 @@ if (!isset($_SESSION["username"])) {
                                 <form action="../../function/transaction.php" method="POST">
                                     <strong><?= $product["nama_produk"] ?></strong> <br>
                                     <input type="hidden" name="id" value="<?= $product["id"] ?>">
+                                    <input type="hidden" name="user_id" value="<?= $_SESSION["user_id"] ?>">
                                     Rp.<?= $product["harga"] ?> <br>
                                     Tersedia <?= $product["qty"] ?> <?= $product["satuan"] ?> <br>
                                     <p class="lead"> <?= $product["deskripsi"] ?></p> <br>
                                     <div class="form-group">
                                         <label>Jumlah beli</label>
                                         <div class="input-group">
-                                    <input type="number" class="form-control col-sm-3" name="qty">
-                                    <div class="input-group-append">
-                                        <div class="input-group-text">
-                                        <?= $product["satuan"] ?>
+                                            <input type="number" class="form-control col-sm-3" name="qty">
+                                            <div class="input-group-append">
+                                                <div class="input-group-text">
+                                                    <?= $product["satuan"] ?>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Keterangan</label>
+                                        <textarea class="form-control col-sm-3" name="keterangan" rows="2"></textarea>
                                     </div>
                                     <div class="float-right">
                                         <button type="submit" name="buy" class="btn btn-success">Beli</a>

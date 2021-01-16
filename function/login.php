@@ -18,6 +18,7 @@ class LoginAuth
         if(mysqli_num_rows($sql)>0)
         {
             $user = mysqli_fetch_assoc($sql);
+            $_SESSION["user_id"] = $user["id"];
             $_SESSION["username"] = $user["username"];
             $_SESSION["nama_user"] = $user["nama_user"];
             $_SESSION["email"] = $user["email"];
