@@ -10,12 +10,6 @@
     <link rel="stylesheet" href="/../assets/admin/modules/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/../assets/admin/modules/fontawesome/css/all.min.css">
 
-    <!-- CSS Libraries -->
-    <link rel="stylesheet" href="/../assets/admin/modules/jqvmap/dist/jqvmap.min.css">
-    <link rel="stylesheet" href="/../assets/admin/modules/summernote/summernote-bs4.css">
-    <link rel="stylesheet" href="/../assets/admin/modules/owlcarousel2/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="/../assets/admin/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
-
     <!-- Template CSS -->
     <link rel="stylesheet" href="/../assets/admin/css/style.css">
     <link rel="stylesheet" href="/../assets/admin/css/components.css">
