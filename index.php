@@ -116,6 +116,11 @@ switch ($queries['page']) {
     case 'detail_product':
         include __DIR__ . "/pages/user/detail_product.php";
         break;
+        
+    case 'my_order':
+        include __DIR__ . "/pages/user/my_order.php";
+        break;
+
     default:
         include __DIR__ . "/pages/dashboard.php";
 }

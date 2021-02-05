@@ -1,4 +1,6 @@
 <h4 class="text-center">TOKO SEDERHANA</h4>
+<div class="col-sm-12 d-flex justify-content-end">
+</div>
 <div class="row">
     <?php
     include __DIR__ . "/../../function/product.php";
@@ -15,7 +17,7 @@
                     <strong> Kategori <?= $product["nama_kategori"] ?> </strong><br>
                     <p class="lead"> <?= $product["deskripsi"] ?></p> <br>
                     <div class="float-right">
-                    <a href="/index.php?page=detail_product&id=<?= $product["id"] ?>" class="btn btn-success">Detail Produk</a>
+                        <a href="/index.php?page=detail_product&id=<?= $product["id"] ?>" class="btn btn-success">Detail Produk</a>
                     </div>
                 </div>
             </div>
