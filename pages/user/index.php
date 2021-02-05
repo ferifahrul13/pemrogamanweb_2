@@ -11,7 +11,7 @@
             <div class="card border-1">
                 <div class="card-body">
                     <strong><?= $product["nama_produk"] ?></strong> <br>
-                    Rp.<?= $product["harga"] ?> <br>
+                    Rp.<?= $product["harga_jual"] ?> <br>
                     <strong> Kategori <?= $product["nama_kategori"] ?> </strong><br>
                     <p class="lead"> <?= $product["deskripsi"] ?></p> <br>
                     <div class="float-right">

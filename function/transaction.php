@@ -55,7 +55,7 @@ class Transaction
             $obj = new Product();
             $header_id =  mysqli_insert_id($this->connect());
             $product = $obj->find($data->produk_id);
-            $product_harga = $product["harga"];
+            $product_harga = $product["harga_jual"];
             $query_detail = "
         INSERT INTO penjualan_detail 
         (
@@ -86,7 +86,8 @@ class Transaction
                     'qty' => $product["qty"] - $data->qty,
                     'deskripsi' => $product["deskripsi"],
                     'status' => $product["status"],
-                    'harga' => $product["harga"],
+                    'harga_beli' => $product["harga_beli"],
+                    'harga_jual' => $product["harga_jual"],
                     'kategori_id' => $product["kategori_id"],
                 ]);
                 if ($update_produk["status"] == "success") {

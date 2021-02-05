@@ -28,7 +28,7 @@ if (!isset($_SESSION["username"])) {
                                     <strong><?= $product["nama_produk"] ?></strong> <br>
                                     <input type="hidden" name="id" value="<?= $product["id"] ?>">
                                     <input type="hidden" name="user_id" value="<?= $_SESSION["user_id"] ?>">
-                                    Rp.<?= $product["harga"] ?> <br>
+                                    Rp.<?= $product["harga_jual"] ?> <br>
                                     Tersedia <?= $product["qty"] ?> <?= $product["satuan"] ?> <br>
                                     <p class="lead"> <?= $product["deskripsi"] ?></p> <br>
                                     <div class="form-group">

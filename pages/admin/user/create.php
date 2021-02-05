@@ -25,32 +25,36 @@
                                               <input type="text" name="username" class="form-control">
                                           </div>
                                       </div>
-                                      
+
                                       <div class="col-sm-6">
                                           <div class="form-group">
                                               <label>E-Mail</label>
                                               <input type="email" name="email" class="form-control">
                                           </div>
                                       </div>
-                                      
+
                                       <div class="col-sm-12">
                                           <div class="form-group">
                                               <label>Password</label>
                                               <input type="text" name="password" class="form-control">
                                           </div>
                                       </div>
-                                      
-                                      <div class="col-sm-12">
-                                          <div class="form-group">
-                                              <label>Level Akses</label>
-                                              <select name="level" class="form-control">
-                                                  <option value="">-- Pilih Level Akses --</option>
-                                                  <option value="admin">Admin</option>
-                                                  <option value="user">User</option>
-                                              </select>
+                                      <?php
+                                        if (isset($_SESSION['level']) && $_SESSION['level'] == 'admin') {
+                                            ?>
+                                          <div class="col-sm-12">
+                                              <div class="form-group">
+                                                  <label>Level Akses</label>
+                                                  <select name="level" class="form-control">
+                                                      <option value="">-- Pilih Level Akses --</option>
+                                                      <option value="admin">Admin</option>
+                                                      <option value="user">User</option>
+                                                  </select>
+                                              </div>
                                           </div>
-                                      </div>
-
+                                      <?php
+                                        }
+                                        ?>
                                   </div>
                               </div>
                               <div class="card-footer border-top">

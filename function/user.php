@@ -22,10 +22,14 @@ class User
 
     public function handleRequest($data)
     {
+        if (isset($data['level'])) {
+            $this->level = $data['level'];
+        } else {
+            $this->level = 'user';
+        }
         $this->nama_user = $data['nama_user'];
         $this->username = $data['username'];
         $this->email = $data['email'];
-        $this->level = $data['level'];
         $this->password = (isset($data["password"]) && $data["password"] != "") ? md5($data["password"]) : null;
         return $this;
     }
@@ -96,11 +100,11 @@ class User
         $id = $request["id"];
         $query = "SELECT id,password FROM user WHERE id='$id'";
         $sql = mysqli_query($this->connect(), $query);
-        
+
         if (mysqli_num_rows($sql) > 0) {
             $user = mysqli_fetch_assoc($sql);
             //jika tidak update password
-            if($data->password == null){
+            if ($data->password == null) {
                 $data->password = $user["password"];
             }
             $query_update = "UPDATE 
