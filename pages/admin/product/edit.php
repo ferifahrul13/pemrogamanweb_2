@@ -43,25 +43,38 @@
                                               </div>
                                           </div>
 
-                                          <div class="col-sm-6">
-                                              <div class="form-group">
-                                                  <label>Quantity</label>
-                                                  <input type="number" name="qty" value="<?= $product["qty"] ?>" class="form-control">
-                                              </div>
-                                          </div>
-                                          <div class="col-sm-6">
-                                              <div class="form-group">
-                                                  <label>Harga</label>
-                                                  <div class="input-group">
-                                                      <div class="input-group-prepend">
-                                                          <div class="input-group-text">
-                                                              Rp.
-                                                          </div>
-                                                      </div>
-                                                      <input name="harga" type="number" value="<?= $product["harga"] ?>" class="form-control">
-                                                  </div>
-                                              </div>
-                                          </div>
+                                          <div class="col-sm-2">
+                                         <div class="form-group">
+                                             <label>Quantity</label>
+                                             <input type="number" name="qty" value="<?= $product["qty"] ?>" class="form-control">
+                                         </div>
+                                     </div>
+                                     <div class="col-sm-5">
+                                         <div class="form-group">
+                                             <label>Harga Beli</label>
+                                             <div class="input-group">
+                                                 <div class="input-group-prepend">
+                                                     <div class="input-group-text">
+                                                         Rp.
+                                                     </div>
+                                                 </div>
+                                                 <input name="harga_beli" value="<?= $product["harga_beli"] ?>" type="number" class="form-control">
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <div class="col-sm-5">
+                                         <div class="form-group">
+                                             <label>Harga Jual</label>
+                                             <div class="input-group">
+                                                 <div class="input-group-prepend">
+                                                     <div class="input-group-text">
+                                                         Rp.
+                                                     </div>
+                                                 </div>
+                                                 <input name="harga_jual" value="<?= $product["harga_jual"] ?>" type="number" class="form-control">
+                                             </div>
+                                         </div>
+                                     </div>
 
                                           <div class="col-sm-6">
                                           <div class="form-group">

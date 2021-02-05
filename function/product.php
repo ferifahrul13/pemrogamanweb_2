@@ -10,8 +10,8 @@ class Product
     public $qty;
     public $deskripsi;
     public $status;
-    public $harga;
-    public $foto_produk;
+    public $harga_jual;
+    public $harga_beli;
     public $kategori_id;
     public $created_at;
     public $updated_at;
@@ -31,23 +31,9 @@ class Product
         $this->qty         = $data['qty'];
         $this->deskripsi   = $data['deskripsi'];
         $this->status      = $data['status'];
-        $this->harga       = $data['harga'];
+        $this->harga_beli  = $data['harga_beli'];
+        $this->harga_jual  = $data['harga_jual'];
         $this->kategori_id = $data['kategori_id'];
-
-        // $name = $data['foto_produk']['name'];
-        // // $target_dir = __DIR__ .'/'.'upload/';
-        // $target_file = basename($name);
-        // // Select file type
-        // $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // $fotoBase64 = base64_encode(file_get_contents($data['foto_produk']['tmp_name']));
-        // $this->foto_produk = 'data:image/'.$imageFileType.';base64,'.$fotoBase64;
-
-        // Upload file
-        // move_uploaded_file($data['foto_produk']['tmp_name'],$target_dir.$name);
-
-
-
         return $this;
     }
 
@@ -77,7 +63,8 @@ class Product
             qty,
             deskripsi,
             status,
-            harga,
+            harga_beli,
+            harga_jual,
             kategori_id,
             
             created_at
@@ -90,7 +77,8 @@ class Product
         '{$data->qty}',
         '{$data->deskripsi}',
         '{$data->status}',
-        '{$data->harga}',
+        '{$data->harga_beli}',
+        '{$data->harga_jual}',
         '{$data->kategori_id}',
         
         '{$data->created_at}'
@@ -135,7 +123,8 @@ class Product
             qty='{$data->qty}',
             deskripsi='{$data->deskripsi}',
             status='{$data->status}',
-            harga='{$data->harga}',
+            harga_beli='{$data->harga_beli}',
+            harga_jual='{$data->harga_jual}',
             kategori_id='{$data->kategori_id}',
             updated_at='{$data->updated_at}'
             WHERE id='$id';
@@ -151,7 +140,7 @@ class Product
     public function mapperProduct()
     {
         $query = "
-        SELECT p.id as id_produk,p.kode_produk,p.nama_produk,p.satuan,p.harga,p.qty,p.deskripsi,p.status, kategori.nama_kategori
+        SELECT p.id as id_produk,p.kode_produk,p.nama_produk,p.satuan,p.harga_beli,p.harga_jual,p.qty,p.deskripsi,p.status, kategori.nama_kategori
                                             FROM produk as p 
                                             INNER JOIN kategori
                                             ON p.kategori_id = kategori.id
@@ -168,7 +157,8 @@ class Product
                     "kode_produk" =>  $data["kode_produk"],
                     "satuan" =>  $data["satuan"],
                     "qty" =>  $data["qty"],
-                    "harga" =>  $data["harga"],
+                    "harga_beli" =>  $data["harga_beli"],
+                    "harga_jual" =>  $data["harga_jual"],
                     "deskripsi" =>  $data["deskripsi"],
                     "nama_kategori" =>  $data["nama_kategori"],
                 ];

@@ -27,7 +27,10 @@
                                     Jumlah
                                 </th>
                                 <th>
-                                    Harga
+                                    Harga Beli
+                                </th>
+                                <th>
+                                    Harga Jual
                                 </th>
                                 <th>
                                     Kategori Produk
@@ -49,7 +52,7 @@
                                 global $connect;
 
                                 $query = "
-                                            SELECT p.id as id_produk,p.kode_produk,p.nama_produk,p.satuan,p.harga,p.qty,p.deskripsi,p.status, kategori.nama_kategori
+                                            SELECT p.id as id_produk,p.kode_produk,p.nama_produk,p.satuan,p.harga_beli,p.harga_jual,p.qty,p.deskripsi,p.status, kategori.nama_kategori
                                             FROM produk as p
                                             INNER JOIN kategori
                                             ON p.kategori_id = kategori.id;
@@ -77,7 +80,10 @@
                                                 <?= $row['qty']; ?>
                                             </td>
                                             <td>
-                                                <?= $row['harga']; ?>
+                                                <?= $row['harga_beli']; ?>
+                                            </td>
+                                            <td>
+                                                <?= $row['harga_jual']; ?>
                                             </td>
                                             <td>
                                                 <?= $row['nama_kategori']; ?>
